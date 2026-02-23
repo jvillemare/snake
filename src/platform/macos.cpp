@@ -8,6 +8,14 @@ void Controls::setup() {
     keypad(stdscr, TRUE);   // enable function keys and arrow keys
 }
 
+void Controls::clear_shell() {
+    clear();
+}
+
+void Controls::refresh_shell() {
+    refresh();
+}
+
 int Controls::print(const char *input, const char *var) {
     return printw(input, var);
 }

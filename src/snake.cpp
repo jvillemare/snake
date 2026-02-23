@@ -1,5 +1,4 @@
 #include <iostream>
-#include <curses.h>
 #include <string>
 #include <thread>
 #include <vector>
@@ -44,13 +43,13 @@ int main()
     while (keep_playing)
     {
         // clear screen
-        clear();
+        controls->clear_shell();
         controls->print("Score: %d\n", game->score);
 
         if (game->has_player_won())
         {
             controls->print("You have won! Press any key to quit\n");
-            refresh();
+            controls->refresh_shell();
             char c = controls->get_user_input();
             break;
         }
@@ -63,22 +62,18 @@ int main()
 
         switch (c)
         {
-            case KEY_UP:
             case 3:   // arrow keys
             case 119: // W
                 game->move_snake(North);
                 break;
-            case KEY_DOWN:
             case 2:   // arrow keys
             case 115: // S
                 game->move_snake(South);
                 break;
-            case KEY_LEFT:
             case 4:  // arrow keys
             case 97: // A
                 game->move_snake(West);
                 break;
-            case KEY_RIGHT:
             case 5:   // arrow keys
             case 100: // D
                 game->move_snake(East);
@@ -89,7 +84,7 @@ int main()
             default:
                 break;
             }
-        refresh();
+        controls->refresh_shell();
     }
 
     controls->teardown();

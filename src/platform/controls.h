@@ -4,6 +4,12 @@ class Controls {
     // setup whatever is needed to start controlling a user's shell
     void setup();
 
+    // clear the screen
+    void clear_shell();
+
+    // refresh the screen
+    void refresh_shell();
+
     // print using the platform specific print method
     int print(const char *);
     // print using the platform specific print method
