@@ -1,7 +1,15 @@
 #include <conio.h>
+#include <stdlib.h>
 #include "controls.h"
 
 void Controls::setup() {
+}
+
+void Controls::clear_shell() {
+    system("cls");
+}
+
+void Controls::refresh_shell() {
 }
 
 int Controls::print(const char *input, const char *var) {

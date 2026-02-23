@@ -6,9 +6,9 @@ Basic C++ made from scratch by me (@jvillemare).
 
 To run the game, simply execute:
 
-```sh
-make run
-```
+- Mac: `make run_mac`
+- Linux: `make run_linux`
+- Windows: `make run_win`
 
 ## Cleanup
 

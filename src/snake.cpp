@@ -8,12 +8,6 @@
 
 using namespace std;
 
-void exit_handler(int s)
-{
-    printf("Caught signal %d\n", s);
-    exit(1);
-}
-
 /*
  * 1. setup board
  * 2. randomly place head of snake
@@ -24,8 +18,6 @@ void exit_handler(int s)
 
 int main()
 {
-    // register signal handler
-    signal(SIGINT, exit_handler);
     // seed random with the current time
     srand(time({}));
 
@@ -63,19 +55,23 @@ int main()
         switch (c)
         {
             case 3:   // arrow keys
-            case 119: // W
+            case 119: // Mac: W
+            case 72: // Win: Up arrow
                 game->move_snake(North);
                 break;
             case 2:   // arrow keys
-            case 115: // S
+            case 115: // Mac: S
+            case 80: // Win: Down arrow
                 game->move_snake(South);
                 break;
             case 4:  // arrow keys
             case 97: // A
+            case 75: // Win: Right arrow
                 game->move_snake(West);
                 break;
             case 5:   // arrow keys
             case 100: // D
+            case 77: // Win: Left arrow
                 game->move_snake(East);
                 break;
             case 27: // escape
